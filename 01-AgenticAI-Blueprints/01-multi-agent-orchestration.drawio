@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="jR7PT3PjE9hnCC-IO6sC">
+    <mxGraphModel dx="1603" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1_bg" parent="1" style="text;html=1;align=center;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#E6F2FF;strokeColor=#4A90E2;strokeWidth=1;rounded=1;arcSize=4;dashPattern=1 1;" value="PHASE 1: TRANSLATION&#xa;(Translator Agent)" vertex="1">
+          <mxGeometry height="380" width="220" x="260" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_bg" parent="1" style="text;html=1;align=center;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#F3E5F5;strokeColor=#AB47BC;strokeWidth=1;rounded=1;arcSize=4;dashPattern=1 1;" value="PHASE 2: ANNOTATION&#xa;(Annotator Agent)" vertex="1">
+          <mxGeometry height="380" width="220" x="540" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_bg" parent="1" style="text;html=1;align=center;verticalAlign=top;fontStyle=1;fontSize=14;fillColor=#E8F5E9;strokeColor=#66BB6A;strokeWidth=1;rounded=1;arcSize=4;dashPattern=1 1;" value="PHASE 3: PROOFREADING&#xa;(Proofreader Agent)" vertex="1">
+          <mxGeometry height="380" width="220" x="820" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="doc_input" parent="1" style="shape=stackedDocument;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;align=center;" value="SOURCE TEXT&#xa;INPUT" vertex="1">
+          <mxGeometry height="90" width="110" x="40" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_prompt" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4A90E2;strokeWidth=2;fontStyle=1;" value="Stateless Zero-Shot&#xa;Translation Interface" vertex="1">
+          <mxGeometry height="155" width="150" x="295" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_logic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#AB47BC;strokeWidth=2;fontStyle=1;align=center;" value="MQM Expert Auditor&#xa;&#xa;Evaluates baseline draft&#xa;against 30 multi-tier&#xa;proofread error codes" vertex="1">
+          <mxGeometry height="155" width="170" x="565" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_llm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#66BB6A;strokeWidth=2;fontStyle=1;align=center;" value="Targeted Error Corrector&#xa;&#xa;Ingests structured logs;&#xa;executes deterministic&#xa;modifications per code" vertex="1">
+          <mxGeometry height="155" width="170" x="845" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_gate" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontStyle=1;align=center;fontSize=11;" value="Quality Evaluation Gate&#xa;(MetricX-24 / COMET-QE)" vertex="1">
+          <mxGeometry height="130" width="150" x="1120" y="177.5" as="geometry" />
+        </mxCell>
+        <mxCell id="hitl_node" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontStyle=1;align=center;" value="Human-in-the-Loop&#xa;(HITL)&#xa;&#xa;Expert Review &amp;&#xa;Manual Override Queue" vertex="1">
+          <mxGeometry height="90" width="160" x="1115" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="final_output" parent="1" style="shape=stackedDocument;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffffff;strokeColor=#333333;fontStyle=1;align=center;" value="FINAL&#xa;TRANSLATION" vertex="1">
+          <mxGeometry height="90" width="110" x="1380" y="197.5" as="geometry" />
+        </mxCell>
+        <mxCell id="telemetry_log" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffffff;strokeColor=#7F8C8D;strokeWidth=1.5;fontStyle=1;align=center;" value="Flat Telemetry Log&#xa;(.JSONL Repository)" vertex="1">
+          <mxGeometry height="80" width="140" x="1365" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="doc_input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=1.5;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="p1_prompt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="p1_prompt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="p2_logic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_prelim" connectable="0" parent="edge6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;" value="baseline&#xa;draft text" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="2" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" edge="1" parent="1" source="p2_logic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="p3_llm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_annot" connectable="0" parent="edge8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;" value="structured MQM&#xa;proofread logs" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="1" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_to_gate" edge="1" parent="1" source="p3_llm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#333333;strokeWidth=1.5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="eval_gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_gate" connectable="0" parent="edge_to_gate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;" value="proofread&#xa;output" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_pass" edge="1" parent="1" source="eval_gate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#27AE60;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="final_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_pass" connectable="0" parent="edge_pass" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;fontColor=#27AE60;" value="Score ≥ Threshold&#xa;(Auto-Approve)" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_fail" edge="1" parent="1" source="eval_gate" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#C0392B;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="hitl_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_fail" connectable="0" parent="edge_fail" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;fontColor=#C0392B;" value="Score &lt; Threshold&#xa;(Flag Violations)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_telemetry" edge="1" parent="1" source="final_output" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7F8C8D;strokeWidth=1.5;strokeDasharray=3 3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=1;" target="telemetry_log">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_telemetry" connectable="0" parent="edge_telemetry" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontBackgroundColor=#ffffff;" value="Asynchronous Triplet Logging&#xa;(Includes Human Corrected Pairs for SFT)" vertex="1">
+          <mxGeometry relative="1" x="-0.2" as="geometry">
+            <mxPoint x="105" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_ykZDlPzXF08lYYHBsTb-1" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1305" y="440" />
+            </Array>
+            <mxPoint x="1280" y="440" as="sourcePoint" />
+            <mxPoint x="1440" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
