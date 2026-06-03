@@ -34,7 +34,3 @@ Enterprise-GenAI-AgenticAI-DesignThinking/
 This repository is architected as a growing ecosystem of enterprise AI design patterns.Multi tier Retrieval Augmented Generation(RAG) patterns will soon follow.
 
 ---
-
-### Quick Start Navigation
-
-👉 **[Proceed to the Technical Implementation Deep-Dive & Setup Guide](./01-AgenticAI-blueprints/README.md)**
