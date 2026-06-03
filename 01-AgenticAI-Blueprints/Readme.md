@@ -2,6 +2,8 @@
 
 This directory contains the architecture blueprint and core configuration layout for a decoupled, three-phase **Translator-Annotator-Proofreader Multi-Agent System (TAP-MAS)**. Modeled after contemporary multi-agent translation frameworks, this platform isolates raw translation, translation quality auditing, and targeted error correction into autonomous linguistic nodes.
 
+![TAP-MAS Architecture Blueprint](01-multi-agent-orchestration.png)
+
 ---
 
 ## System Architecture Overview
