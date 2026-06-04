@@ -37,7 +37,7 @@ Once asynchronous responses resolve, a pointer-alignment engine maps segments ba
 ## Declarative Index Topology
 The precise underlying cloud configurations and technical selections are declared inside our production infrastructure manifest file:
 
-
+* 📄 **[architecture/vertexai_rag_index_config.json](architecture/vertexai_rag_index_config.json)**
 
 ### Key Technical Properties Declared:
 * **Embedding Backbone:** Configured with `text-multilingual-embedding-002`. This native 768-dimension model accelerates distance calculations relative to 1024-dimension models.
