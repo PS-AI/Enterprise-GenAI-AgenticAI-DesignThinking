@@ -1,1 +1,40 @@
-
+{
+  "module_name": "tier2_hybrid_lexical_semantic_module",
+  "pipeline_settings": {
+    "in_memory_deduplication": true,
+    "max_candidate_pool_limit": 15,
+    "top_k_validated_output_limit": 3
+  },
+  "retrieval_streams": {
+    "lexical_bm25": {
+      "enabled": true,
+      "index_path": "local_storage/indices/bm25_glossary.json",
+      "parameters": {
+        "k1": 1.2,
+        "b": 0.75
+      }
+    },
+    "semantic_faiss": {
+      "enabled": true,
+      "embedding_model": {
+        "model_name": "paraphrase-multilingual-MiniLM-L12-v2",
+        "dimensions": 384,
+        "device": "cpu"
+      },
+      "index_path": "local_storage/indices/faiss_ram.index",
+      "similarity_metric": "cosine"
+    }
+  },
+  "evaluation_jury": {
+    "cross_encoder": {
+      "model_name": "mmarco-mMiniLM-L6-v2",
+      "device": "cpu",
+      "batch_size": 16,
+      "confidence_threshold": 0.85
+    }
+  },
+  "fallback_mechanisms": {
+    "allow_llm_base_fallback": true,
+    "log_telemetry_on_failure": true
+  }
+}
