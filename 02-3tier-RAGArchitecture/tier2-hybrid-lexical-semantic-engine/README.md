@@ -1,6 +1,6 @@
 # Tier 2: Hybrid Lexical-Semantic Architecture
 
-
+![Tier 2 Hybrid Pipeline Architecture](architecture/tier2_architecture.png)
 
 ## Architectural Overview
 The **Hybrid Lexical-Semantic** module handles local high-accuracy terminology retrieval. This engine executes a dual-stream cascading search strategy. It combines traditional lexical (keyword) matching with semantic (vector) search, fuses the candidate pools, and uses a precise local Cross-Encoder to rank and select the optimal translation glossary context.
