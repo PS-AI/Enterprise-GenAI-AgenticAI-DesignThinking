@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="1223" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="box_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E8F0FE;strokeColor=#4285F4;fontColor=#1967D2;fontStyle=1;" value="STAGE 1: INPUT&#xa;&#xa;Bulk Source Text&#xa;(In-Memory De-duplication)" vertex="1">
+          <mxGeometry height="80" width="180" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="box_bm25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6F4EA;strokeColor=#34A853;fontColor=#137333;fontStyle=1;" value="STAGE 2A: LEXICAL SEARCH&#xa;&#xa;BM25 Engine&#xa;(Exact Keywords &amp; Codes)" vertex="1">
+          <mxGeometry height="80" width="200" x="290" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="box_vector" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#FCE8E6;strokeColor=#EA4335;fontColor=#C5221F;fontStyle=1;" value="STAGE 2B: SEMANTIC SEARCH&#xa;&#xa;MiniLM Embedding Model&#xa;+ Local FAISS RAM Index&#xa;(Conceptual Meaning)" vertex="1">
+          <mxGeometry height="90" width="200" x="290" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="box_union" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E8F0FE;strokeColor=#4285F4;fontColor=#1967D2;fontStyle=1;" value="STAGE 3: POOL UNION&lt;br&gt;&lt;br&gt;Score-Agnostic ID Merger&lt;br&gt;(Strict Cap: Max n Items)" vertex="1">
+          <mxGeometry height="80" width="190" x="560" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="box_cross" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#F3E5F5;strokeColor=#7B1FA2;fontColor=#4A148C;fontStyle=1;" value="STAGE 4: EVALUATION&#xa;&#xa;Cross-Encoder Jury&#xa;(Deep Token Alignment)" vertex="1">
+          <mxGeometry height="80" width="180" x="810" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="box_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E8F0FE;strokeColor=#4285F4;fontColor=#1967D2;fontStyle=1;" value="STAGE 5: OUTPUT&#xa;&#xa;Context Injection&#xa;to Translation LLM" vertex="1">
+          <mxGeometry height="80" width="160" x="1050" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_to_bm25" edge="1" parent="1" source="box_input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;strokeColor=#34A853;strokeWidth=2;fontColor=#137333;" target="box_bm25" value="Split Query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_to_vector" edge="1" parent="1" source="box_input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;strokeColor=#EA4335;strokeWidth=2;fontColor=#C5221F;" target="box_vector" value="Split Query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_bm25_to_union" edge="1" parent="1" source="box_bm25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.25;strokeColor=#34A853;strokeWidth=2;fontColor=#137333;" target="box_union" value="Keyword Matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_vector_to_union" edge="1" parent="1" source="box_vector" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.75;strokeColor=#EA4335;strokeWidth=2;fontColor=#C5221F;" target="box_union" value="Concept Matches">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_union_to_cross" edge="1" parent="1" source="box_union" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#4285F4;strokeWidth=2;fontColor=#1967D2;" target="box_cross" value="Fused Pool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_cross_to_output" edge="1" parent="1" source="box_cross" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#7B1FA2;strokeWidth=2;fontColor=#4A148C;" target="box_output" value="Top k Validated">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
