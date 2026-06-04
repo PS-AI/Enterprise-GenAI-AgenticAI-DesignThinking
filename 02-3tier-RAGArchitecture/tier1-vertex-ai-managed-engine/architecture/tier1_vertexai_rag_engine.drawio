@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="rw-05dUMaCSmc0Hz_UgJ">
+    <mxGraphModel dx="917" dy="347" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="layer_app" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;bgStackSize=1;fillColor=#F5F5F5;strokeColor=#666666;fontColor=#333333;" value="Translation Application Layer (Stateless API Nodes)" vertex="1">
+          <mxGeometry height="420" width="240" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app_input" parent="layer_app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4285F4;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;Bulk Source Text Input Layer&lt;/b&gt;&#xa;&lt;i&gt;(Source Strings for Translation /&#xa;In-Memory Order-Preserved&#xa;De-duplication Enabled)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="190" x="25" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="app_orchestrator" parent="layer_app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4285F4;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;Asynchronous API Orchestrator&lt;/b&gt;&#xa;&lt;i&gt;(Mini-Batch Slicing &amp;amp;&#xa;Bounded Concurrency Throttling)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="75" width="190" x="25" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="app_output" parent="layer_app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#4285F4;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;Reconstruction &amp;amp; Injection Layer&lt;/b&gt;&#xa;&lt;i&gt;(Reconstruction of Segment Array /&#xa;Glossary Constraints Injection /&#xa;LLM Base Capability Fallback)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="75" width="190" x="25" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_app_1" edge="1" parent="layer_app" source="app_input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#4285F4;strokeWidth=2;" target="app_orchestrator" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="layer_gcp" parent="1" style="swimlane;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fillColor=#E8F0FE;strokeColor=#4285F4;fontColor=#1967D2;" value="GCP Managed Environment (Vertex AI RAG Engine Workspace)" vertex="1">
+          <mxGeometry height="420" width="440" x="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp_embedding" parent="layer_gcp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;text-multilingual-embedding-002&lt;/b&gt;&#xa;[768 Dimensions Configured]&#xa;Optimized for Sub-Second Processing Latency" vertex="1">
+          <mxGeometry height="70" width="360" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp_ann" parent="layer_gcp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#34A853;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;Translation Memory Glossary Index&lt;/b&gt;&lt;br&gt;Approximate Nearest Neighbor (ANN) Semantic Search&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="360" x="40" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="gcp_distance" parent="layer_gcp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#EA4335;strokeWidth=2;fontColor=#333333;" value="&lt;b&gt;Vector Distance Evaluation: Cosine Similarity&lt;/b&gt;&#xa;Captures Semantic Orientation / Mitigates String Magnitude Variance" vertex="1">
+          <mxGeometry height="70" width="360" x="40" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_gcp_1" edge="1" parent="layer_gcp" source="gcp_embedding" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34A853;strokeWidth=2;labelBackgroundColor=#FFFFFF;fontColor=#202124;" target="gcp_ann" value="Generate Vectors">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_gcp_2" edge="1" parent="layer_gcp" source="gcp_ann" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#34A853;strokeWidth=2;labelBackgroundColor=#FFFFFF;fontColor=#202124;" target="gcp_distance" value="Evaluate Nearest Neighbors">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_inter_1" edge="1" parent="1" source="app_orchestrator" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#EA4335;strokeWidth=2;fontColor=#202124;" target="gcp_embedding" value="API Request&#xa;(3x Exp. Backoff + Jitter)">
+          <mxGeometry relative="1" x="-0.2" y="25" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_inter_2" edge="1" parent="1" source="gcp_distance" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#34A853;strokeWidth=2;fontColor=#202124;" target="app_output" value="API Context Response&#xa;(Glossary Rules Array)">
+          <mxGeometry relative="1" x="-0.2" y="-25" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="compliance_note" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#665C00;align=left;spacingLeft=10;" value="&lt;b&gt;Enterprise Security, Compliance &amp;amp; Operational Guardrails:&lt;/b&gt;&lt;br&gt;• Native Google Cloud IAM Roles Enforced&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="760" x="40" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="xoEsHNTsXxq5Ls_dS-nY-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Tier 1 RAG - VertexAI Managed Engine" vertex="1">
+          <mxGeometry height="30" width="250" x="250" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="xoEsHNTsXxq5Ls_dS-nY-2" edge="1" parent="1" source="compliance_note" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="compliance_note">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
