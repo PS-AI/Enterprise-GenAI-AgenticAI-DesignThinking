@@ -1,1 +1,28 @@
-
+{
+  "index_identity": {
+    "project_id": "production-cloud",
+    "region": "us-central1",
+    "rag_workspace_name": "translation-memory-v1"
+  },
+  "vector_infrastructure": {
+    "embedding_model": {
+      "model_id": "text-multilingual-embedding-002",
+      "native_dimensions": 768,
+      "description": "768-dimension model selected to optimize for translation retrieval latency compared to 1024-dim alternatives."
+    },
+    "index_configuration": {
+      "algorithm_type": "APPROXIMATE_NEAREST_NEIGHBOR",
+      "distance_evaluation_metric": "COSINE",
+      "sharding_strategy": "AUTO_MANAGED",
+      "justification": "Cosine similarity maps vector angles rather than magnitude, ensuring short text translation queries are matched with highly relevant contextual glossary pairs without length-based penalties."
+    }
+  },
+  "security_governance": {
+    "access_control": {
+      "iam_roles_enforced": [
+        "roles/aiplatform.user",
+        "roles/aiplatform.viewer"
+      ]
+    }
+  }
+}
