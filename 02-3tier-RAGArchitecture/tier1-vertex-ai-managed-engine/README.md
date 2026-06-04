@@ -5,6 +5,8 @@
 ## Architectural Philosophy
 Tier 1 represents an entry-level pipeline designed to maximize **Engineering Velocity**. By offloading horizontal scalability, vector index sharding, and real-time query acceleration to Google Cloud’s managed layer, our engineering focus shifts entirely away from operational infrastructure management and onto core translation accuracy and API performance constraints.
 
+![Tier 1 Architecture Blueprint](architecture/tier1_vertexai_rag_engine.png)
+
 ---
 
 ## Core Business Objective: Glossary-Enriched Translation
