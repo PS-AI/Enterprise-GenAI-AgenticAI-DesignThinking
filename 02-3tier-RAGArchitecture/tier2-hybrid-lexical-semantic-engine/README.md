@@ -29,3 +29,14 @@ To close vocabulary gaps and handle precise alphanumeric matches simultaneously,
 * **Fallback Logic:** If no candidate passes the minimum confidence threshold, the pipeline safely relies on the **LLM Base Capability Fallback**, allowing the standard translation engine to handle the text normally.
 
 ---
+
+## Configuration & Parameter Management
+The underlying mathematical parameters for this entire pipeline are managed dynamically through the module's configuration file:
+
+📁 **[`tier2_config.json`](tier2_config.json)**
+
+### Key Parameters Driven by the Configuration:
+* **Pool Caps (`max_candidate_pool_limit`):** Sets the execution pool volume to a strict max of `15` items in Stage 3 and Stage 4 to preserve CPU memory efficiency.
+* **Evaluation Window (`top_k_validated_output_limit`):** Configures the `Top-K` output size (set to `3`) handed off to the translation LLM in Stage 5.
+* **Lexical Coefficients (`k1` & `b`):** Dictates the term-saturation (`1.2`) and length-normalization (`0.75`) weights for the Stage 2A BM25 engine.
+* **Model References:** Declares the precise local asset paths for the `mMiniLM` Cross-Encoder.
