@@ -26,11 +26,31 @@ Enterprise-GenAI-AgenticAI-DesignThinking/
     │
     └── schema/                        <-- Enterprise Data Contracts & Compliance Gates
         └── translation_pipeline_schema.json
+└── 02-3tier-RAGArchitecture/          
+    ├── README.md                      
+    ├── tier1-vertexai-managed-engine/                       
+    │   ├── architecture/
+    │   │   ├── tier1_architecture.drawio
+    │   │   ├── tier1_architecture.png
+    │   │   ├── vertexai-rag-index-config.json
+    │   └── README.md
+    └── tier2-hybrid-lexical-semantic-engine/                       
+    │   ├── architecture/
+    │   │   ├── tier2_architecture.drawio
+    │   │   ├── tier2_architecture.png
+    │   │   ├── tier2-config.json
+    │   └── README.md
+    └── tier3-decentralized_large_scale_hybrid_rag/
+    │   ├── architecture/
+    │   │   ├── tier3_architecture.drawio
+    │   │   ├── tier3_architecture.png
+    │   │   ├── tier3-config.json
+    │   └── README.md
 
 ---
 
 ## Evolving Roadmap (The Portfolio Garden)
 
-This repository is architected as a growing ecosystem of enterprise AI design patterns.Multi tier Retrieval Augmented Generation(RAG) patterns will soon follow.
+This repository is architected as a growing ecosystem of enterprise AI design patterns.
 
 ---
