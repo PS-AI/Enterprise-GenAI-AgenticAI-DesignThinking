@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="9gB9dU71R5wMdTuIENFC">
+    <mxGraphModel dx="1223" dy="676" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="light-dark(#0D1117,#121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];shapes=[];fontColor=#FFFFFF;fontStyle=1;fontSize=15;" value="Tier 3 RAG Architecture - Decentralized Hybrid Massive-Scale Engine" vertex="1">
+          <mxGeometry height="30" width="500" x="40" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary_app" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#3A4454;strokeWidth=1;dashed=1;verticalAlign=top;align=left;fontColor=#8B949E;fontSize=12;fontStyle=1" value="Translation Application Layer (Stateless Local Runtime Environment)" vertex="1">
+          <mxGeometry height="540" width="340" x="40" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="node_s1_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#1F6FEB;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="Bulk Source Text Input Layer&#xa;(Source Strings for Translation /&#xa;In-Memory Order-Preserved&#xa;De-duplication Enabled)" vertex="1">
+          <mxGeometry height="90" width="280" x="70" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="node_s1_orchestrator" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#1F6FEB;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="Asynchronous Pipeline Orchestrator&lt;br&gt;(Mini batch slicing)" vertex="1">
+          <mxGeometry height="80" width="280" x="70" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="node_s5_reconstruction" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#1F6FEB;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="Reconstruction &amp; Injection Layer&#xa;(Context Constraints Injection /&#xa;LLM Context Window Handoff)" vertex="1">
+          <mxGeometry height="80" width="270" x="70" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary_qdrant" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#238636;strokeWidth=1;dashed=1;verticalAlign=top;align=left;fontColor=#8B949E;fontSize=12;fontStyle=1" value="Enterprise Storage Cluster (Decoupled Centralized Qdrant Cloud-Native Cluster)" vertex="1">
+          <mxGeometry height="250" width="690" x="440" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="node_qdrant_dense" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#F85149;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="text-multilingual-embedding-002&lt;br&gt;[768 Dimensions ]&lt;br&gt;Qdrant Dense Vector Vector Stream&lt;br&gt;(Deep Conceptual Semantics)" vertex="1">
+          <mxGeometry height="80" width="280" x="480" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="node_qdrant_sparse" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#2EA043;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="Qdrant Sparse Vector Token Index&#xa;BM25 Token Inverted Stream&#xa;(Exact Lexical Token Anchors)" vertex="1">
+          <mxGeometry height="80" width="280" x="480" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="node_rrf_engine" parent="1" style="shape=mxgraph.basic.octagon;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#D97706;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=11;align=center;" value="Native Reciprocal Rank&#xa;Fusion (RRF) Engine&#xa;&#xa;Transforms Similarity&#xa;Scores into Uniform Ranks&#xa;&#xa;Universal Score Harmonizer" vertex="1">
+          <mxGeometry height="150" width="220" x="840" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary_gpu" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#8957E5;strokeWidth=1;dashed=1;verticalAlign=top;align=left;fontColor=#8B949E;fontSize=12;fontStyle=1" value="Dedicated Hardware Compute Tier (GPU Accelerated Validation Jury)" vertex="1">
+          <mxGeometry height="250" width="690" x="440" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="node_bge_reranker" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#8957E5;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="BGE-Reranker Cross-Encoder&lt;br&gt;( 8192 Token Window)" vertex="1">
+          <mxGeometry height="80" width="370" x="480" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="node_topk_filter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#161B22;strokeColor=#0891B2;strokeWidth=2;fontColor=#F0F6FC;fontStyle=1;fontSize=12;" value="Top-K Validated&#xa;Glossary Matches" vertex="1">
+          <mxGeometry height="80" width="160" x="920" y="455" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_s1_internal" edge="1" parent="1" source="node_s1_input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#58A6FF;strokeWidth=2;" target="node_s1_orchestrator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_orch_to_dense" edge="1" parent="1" source="node_s1_orchestrator" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#F85149;strokeWidth=2;fontColor=#8B949E;fontSize=11;" target="node_qdrant_dense" value="Atomic API Request&lt;br&gt;(Exp. Backoff)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="310" />
+              <mxPoint x="415" y="310" />
+              <mxPoint x="415" y="155" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_orch_to_sparse" edge="1" parent="1" source="node_s1_orchestrator" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#2EA043;strokeWidth=2;" target="node_qdrant_sparse" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="350" />
+              <mxPoint x="415" y="350" />
+              <mxPoint x="415" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_dense_to_rrf" edge="1" parent="1" source="node_qdrant_dense" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;strokeColor=#F85149;strokeWidth=1.5;fontColor=#8B949E;fontSize=11;" target="node_rrf_engine" value="Dense Vector Scores">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_sparse_to_rrf" edge="1" parent="1" source="node_qdrant_sparse" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeColor=#2EA043;strokeWidth=1.5;fontColor=#8B949E;fontSize=11;" target="node_rrf_engine" value="Inverted BM25 Ranks">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rrf_to_gpu" edge="1" parent="1" source="node_rrf_engine" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.824;entryY=-0.013;entryDx=0;entryDy=0;strokeColor=#D97706;strokeWidth=2;fontColor=#8B949E;fontSize=11;entryPerimeter=0;" target="node_bge_reranker" value="Unified Candidate Pool (Top-N)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rerank_to_topk" edge="1" parent="1" source="node_bge_reranker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#8957E5;strokeWidth=2;fontColor=#8B949E;fontSize=11;" target="node_topk_filter" value="Deep Cross-Attention&#xa;Relevance Evaluation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_topk_to_injection" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#0891B2;strokeWidth=2;fontColor=#8B949E;fontSize=11;" target="node_s5_reconstruction" value="API Context Response&lt;br&gt;(Glossary Array )">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1010" y="565" />
+              <mxPoint x="645" y="565" />
+              <mxPoint x="645" y="580" />
+              <mxPoint x="360" y="580" />
+              <mxPoint x="360" y="530" />
+            </Array>
+            <mxPoint x="1010" y="545" as="sourcePoint" />
+            <mxPoint x="360" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
