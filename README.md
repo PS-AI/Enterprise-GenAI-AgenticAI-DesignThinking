@@ -1,5 +1,7 @@
 # Enterprise-GenAI-AgenticAI-DesignThinking
 
+![Introduction](Introduction.jpg)
+
 ## Executive Summary
 This repository serves as a  **AI Portfolio Garden**, showcasing architectural patterns for Generative AI and Agentic systems. Built through the lens of **Design Thinking**, the solutions prioritize human-centric problem solving, strict data governance and deterministic execution.
 
